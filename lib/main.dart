@@ -21,7 +21,10 @@ import 'package:basamin/models/form_model.dart';
 void main() {
   // CREATE USER SERVCIE
   final UserModel user = new UserModel(id: 11, name: 'Alan', age: '21', nationality: 'irish');
-  user.getData();
+  user.getData().then((data) {
+    print('i am in main and the data is now here');
+    print(data);
+  });
 
   // CREATE FORM SERVICE
   final FormModel form = new FormModel();
