@@ -11,17 +11,8 @@ import 'package:flutter/material.dart';
  * @class drop down
  * @description: component
  */
-class DropDown extends StatelessWidget {
-  // internal property
-  final List items = [
-    { "value": 'ireland' },
-    { "value": 'china' },
-    { "value": 'india' },
-    { "value": 'japan' },
-  ];
-  // constructor
-
-
+class Notification extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Container(

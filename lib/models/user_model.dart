@@ -25,14 +25,11 @@ class UserModel {
    * @date
    * @
    */
-  Future getData() {
-    // Timer(Duration(seconds: 1), () => print('fetch data for user'));
-    final p = Future.delayed(const Duration(seconds: 2), () {
+  Future<dynamic> getData() {
+    return Future.delayed(const Duration(seconds: 2), () {
       print('get data complete');
       return {'bar': 'adsfaf'};
     });
-
-    return p;
   }
 
   /*
@@ -40,14 +37,11 @@ class UserModel {
    * @date
    * @
    */
-  Future login() {
-    // Timer(Duration(seconds: 1), () => print('fetch data for user'));
-    final p = Future.delayed(const Duration(seconds: 5), () {
+  Future<dynamic> login() {
+    return Future.delayed(const Duration(seconds: 5), () {
       print('login complete');
       return {"foo": 100};
     });
-
-    return p;
   }
 
   /*
@@ -55,12 +49,10 @@ class UserModel {
    * @date
    * @
    */
-  Future signout() {
-    // Timer(Duration(seconds: 1), () => print('fetch data for user'));
-    final p = Future.delayed(const Duration(seconds: 5), () => {
-      print('sign out complete')
+  Future<dynamic> signout() {
+    return Future.delayed(const Duration(seconds: 5), () {
+      print('sign out complete');
+      return {"signout": 'asdasdfliixkjcjkiowjak;s23kl2k34j'};
     });
-
-    return p;
   }
 }
