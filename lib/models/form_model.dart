@@ -1,6 +1,6 @@
 import 'dart:async';
 
-class FormModel {
+class FormModel{
   /*
    * @author Yinghan Wang
    * @date
@@ -16,7 +16,10 @@ class FormModel {
    * @date
    * @
    */
-  Future submit() {
-    Timer(Duration(seconds: 1), () => print('sign out complete'));
+  Future <dynamic> submit() {
+    return Future.delayed(const Duration(seconds: 2), () {
+      print('submiting form');
+      return {'ok': true};
+    });
   }
 }

@@ -19,27 +19,27 @@ import 'package:basamin/models/form_model.dart';
  * @
  */
 void main() async {
-  // CREATE USER SERVCIE
-  final UserModel user = new UserModel(id: 11, name: 'Alan', age: '21', nationality: 'irish');
-  
-  // mocking fetching data
-  var data = await user.getData();
-  print(data);
-
-  // mocking login
-  var loginRs = await user.login();
-  print(loginRs);
-
-  // mocking signout
-  var signoutRs = await user.signout();
-  print(signoutRs);
-
-  // CREATE FORM SERVICE
-  final FormModel form = new FormModel();
-  form.validate();
-
   // CREATE FORM SERVICE
   runApp(new MyApp());
+
+  // // CREATE USER SERVCIE
+  // final UserModel user = new UserModel(id: 11, name: 'Alan', age: '21', nationality: 'irish');
+  
+  // // mocking fetching data
+  // var data = await user.getData();
+  // print(data);
+
+  // // mocking login
+  // var loginRs = await user.login();
+  // print(loginRs);
+
+  // // mocking signout
+  // var signoutRs = await user.signout();
+  // print(signoutRs);
+
+  // // CREATE FORM SERVICE
+  // final FormModel form = new FormModel();
+  // form.validate();
 }
 
 /*

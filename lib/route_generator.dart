@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:basamin/pages/first_page.dart';
 import 'package:basamin/pages/second_page.dart';
 import 'package:basamin/pages/third_page.dart';
+import 'package:basamin/pages/intro.dart';
 
 /*
  * @author Yinghan Wang
@@ -21,6 +22,14 @@ class RouteGenerator {
        * @
        */
       case '/':
+        return MaterialPageRoute(builder: (_) => Intro());
+
+      /*
+       * @author Yinghan Wang
+       * @date
+       * @
+       */
+      case '/first':
         return MaterialPageRoute(builder: (_) => FirstPage());
 
       /*
