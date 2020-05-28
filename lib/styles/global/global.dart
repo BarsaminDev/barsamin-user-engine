@@ -8,7 +8,7 @@ class GlobalStyle{
    * @
    */
   static final primaryColor = '';
-  static final red = '';
+  static final red = Colors.red;
   static final green = '';
   static final black = '';
   static final white = Colors.white;

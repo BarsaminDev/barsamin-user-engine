@@ -4,6 +4,8 @@
  * @
  */
 import 'package:flutter/material.dart';
+import 'package:division/division.dart';
+import 'package:basamin/styles/components/identity.dart';
 
 /*
  * @author Yinghan Wang
@@ -26,10 +28,9 @@ class Identity extends StatelessWidget {
       margin: EdgeInsets.all(20),
 
       // content
-      child:Text(
+      child:Txt(
         '$id', 
-        style: TextStyle( fontSize: 30,),
-        textAlign: TextAlign.center,
+        style: IdentityStyle.listItem
       ),
     );
   }
