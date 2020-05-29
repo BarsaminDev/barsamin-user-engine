@@ -10,9 +10,8 @@ class IdentityStyle {
   // listItem is equivlent to .list-item class in csss
   static final listItem = TxtStyle()
   ..textColor(GlobalStyle.white)
-  ..fontSize(GlobalStyle.largeText)
+  ..fontSize(GlobalStyle.mediumText)
   ..bold()
   ..textColor(GlobalStyle.red)
-  ..italic()
   ..textAlign.start();
 }
