@@ -3,38 +3,87 @@
  * @date
  * @
  */
+import 'package:basamin/services/product_list_service.dart';
 import 'package:flutter/material.dart';
 import 'package:basamin/components/identity.dart';
+import 'package:get_it/get_it.dart';
 
-class FirstPage extends StatelessWidget{
+/*
+ * @author Yinghan Wang
+ * @date
+ * @state boilerplate
+ */
+class FirstPage extends StatefulWidget{
+  @override
+  createState() => FirstPageState();
+}
+
+/*
+ * @author Yinghan Wang
+ * @date
+ * @controller
+ */
+class FirstPageState extends State<FirstPage>{
+  FirstPageState() {
+    refresh();
+  }
   // STATE
-  final _index = 0;
-  final _data = [ 'what is your screen sh1111sdasdfot?', 'what is your name, and hwat is you job', 'what is your pasdfasdfasfssord'];
+  int _index = 0;
+  ProductListService pls = GetIt.I<ProductListService>();
+  
+
+  // List<dynamic> _data;
+ 
   
   // EVENTS
   void _onClickFoo() {
-    print(_index);
+    setState(() {
+  
+      _index = 0;
+      // print(_data);
+      // _data[0]['name'] =  'sdfadfadf###';
+      // print(_data);
+    });
   }
 
-  Future onPressedSecondPage(context) {
+  void onPressedSecondPage(context) {
     print('555666666');    
-    return Navigator.of(context).pushNamed(
-      '/third', 
-      arguments: 'come from the first page to the second page',
-    );
+    setState(() {
+      _index = 1;
+    });
+    // return Navigator.of(context).pushNamed(
+    //   '/third', 
+    //   arguments: 'come from the first page to the second page',
+    // );
   }
 
-  Future onThirdPagePressed(context) {
+  void onThirdPagePressed(context) {
     print('hljdalsd333333fjlr');    
-    return Navigator.of(context).pushNamed(
-      '/second', 
-      arguments: 'come from the first page to the third page',
-    ); 
+    setState(() {
+      _index = 2;
+    });
+    // return Navigator.of(context).pushNamed(
+    //   '/second', 
+    //   arguments: 'come from the first page to the third page',
+    // ); 
+  }
+
+  void refresh() {
+    
+    pls.fetch().then((value) {
+       
+        print('set state....');
+        print(value);
+    
+    });
+  
+    
   }
 
   // VIEW
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -42,7 +91,7 @@ class FirstPage extends StatelessWidget{
         ),
         body: Column(
           children: [
-            Identity(_data[_index]),
+            Identity(pls.data[_index]['name']),
             RaisedButton(
               child: Text('Anser 1'),
               onPressed: _onClickFoo,

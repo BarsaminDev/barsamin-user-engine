@@ -21,7 +21,7 @@ class Intro extends StatelessWidget {
     print('###########');
     print(context);
 
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       return Navigator.of(context).pushNamed(
         '/first', 
         arguments: 'come from the intro page to the first page',

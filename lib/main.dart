@@ -8,11 +8,24 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 // INCLUDE SERVICES
-import 'package:basamin/models/user_model.dart';
-import 'package:basamin/models/form_model.dart';
+import 'package:basamin/services/product_list_service.dart';
+
 // import 'package:flutter/rendering.dart';
 
 
+
+
+void setupServices() {
+  GetIt getIt = GetIt.I;
+
+  // app model
+  var appModel = AppModel();
+  getIt.registerSingleton<AppModel>(appModel);
+
+  // product list servcie
+  var productListService = ProductListService();
+  getIt.registerSingleton<ProductListService>(productListService);
+}
 
 class AppModel {
   String device = '';
@@ -28,18 +41,13 @@ class AppModel {
 }
 
 
-
 /*
  * @author Yinghan Wang
  * @date
  * @
  */
 void main() async {
-  GetIt getIt = GetIt.instance;
-  var appModel = AppModel();
-  getIt.registerSingleton<AppModel>(appModel);
-  appModel.validate('main page');
-  appModel.getDevice();
+  setupServices();
 
   // CREATE FORM SERVICE
   runApp(new MyApp());

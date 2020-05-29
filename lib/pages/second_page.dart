@@ -17,9 +17,7 @@ class SecondPage extends StatelessWidget {
 
 
   void init(context) {
-    GetIt getIt = GetIt.instance;
-    AppModel appModel = getIt<AppModel>();
-    print('pppppppppppppppppppppppppppppppppppp');
+    AppModel appModel = GetIt.instance<AppModel>();
     appModel.getDevice();
     appModel.validate('second page');
     appModel.getDevice();
