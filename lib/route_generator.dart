@@ -56,7 +56,11 @@ class RouteGenerator {
       case '/third':
         return MaterialPageRoute(
           builder: (_) => ThirdPage(
-            data: args
+            hintText: 'hint text',
+            // validator: (String val) { print('validate'); },
+            // onSaved: () { print('save the form'); },
+            isPassword: false,
+            isEmail: true,
           ),
         );
         

@@ -5,7 +5,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:division/division.dart';
-import 'package:basamin/styles/components/identity.dart';
+import 'package:basamin/styles/components/identity.style.dart';
 
 /*
  * @author Yinghan Wang

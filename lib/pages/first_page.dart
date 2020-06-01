@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:basamin/components/identity.dart';
 import 'package:get_it/get_it.dart';
 
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
 /*
  * @author Yinghan Wang
  * @date
@@ -24,60 +26,59 @@ class FirstPage extends StatefulWidget{
  * @controller
  */
 class FirstPageState extends State<FirstPage>{
-  FirstPageState() {
+
+  ProductListService pls;
+  String scannedRes = '';
+
+  @override
+  void initState() {
+    print('initializing state in the first page');
+    super.initState();
+    this.pls = GetIt.I<ProductListService>();
     refresh();
   }
-  // STATE
-  int _index = 0;
-  ProductListService pls = GetIt.I<ProductListService>();
   
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
-  // List<dynamic> _data;
- 
+  Future _onPressScan() async{
+    var res = await FlutterBarcodeScanner.scanBarcode('#004297', 'Cancel', true, ScanMode.DEFAULT);
+    setState(() {
+      this.scannedRes = res;
+    });
+  }
   
   // EVENTS
-  void _onClickFoo() {
-    setState(() {
-  
-      _index = 0;
-      // print(_data);
-      // _data[0]['name'] =  'sdfadfadf###';
-      // print(_data);
-    });
+  void _onPressSort() {   
+    pls.sort();
+    setState(() {});
   }
 
-  void onPressedSecondPage(context) {
-    print('555666666');    
-    setState(() {
-      _index = 1;
-    });
-    // return Navigator.of(context).pushNamed(
-    //   '/third', 
-    //   arguments: 'come from the first page to the second page',
-    // );
+  void onPressGoToSecondPage(context) {
+    print('go to the second page');
+    Navigator.of(context).pushNamed(
+      '/second', 
+      arguments: 'come from the first page to the second page',
+    ); 
   }
 
-  void onThirdPagePressed(context) {
-    print('hljdalsd333333fjlr');    
-    setState(() {
-      _index = 2;
-    });
-    // return Navigator.of(context).pushNamed(
-    //   '/second', 
-    //   arguments: 'come from the first page to the third page',
-    // ); 
+  void onPressGoToThirdPage(context) {    
+    print('go to the third page');
+    Navigator.of(context).pushNamed(
+      '/third', 
+      arguments: 'come from the first page to the third page',
+    ); 
   }
 
-  void refresh() {
-    
-    pls.fetch().then((value) {
-       
-        print('set state....');
-        print(value);
-    
-    });
-  
-    
+  void refresh() async{
+    await pls.fetch();
+    setState(() {});
+  }
+
+  void onPressShowModal() {
+    print('show modal');
   }
 
   // VIEW
@@ -89,23 +90,86 @@ class FirstPageState extends State<FirstPage>{
         appBar: AppBar(
           title: Text('Flutter POC'),
         ),
+
+
         body: Column(
-          children: [
-            Identity(pls.data[_index]['name']),
-            RaisedButton(
-              child: Text('Anser 1'),
-              onPressed: _onClickFoo,
+          children: <Widget>[
+            Container(
+              child: Text('Experiment page', style: TextStyle( fontSize: 40 ),),
             ),
-            RaisedButton(
-              child: Text('Anser 2'),
-              onPressed: () => onPressedSecondPage(context),
+
+            Container(
+              child: Text('Scanned value: ${this.scannedRes}')
             ),
-            RaisedButton(
-              child: Text('Anser 3'),
-              onPressed: () => onThirdPagePressed(context),
+
+            Expanded(
+              child: SizedBox(
+                child: ListView.builder(
+                  itemCount: pls.data.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Identity('${pls.data[index]['name']}'),
+                    );
+                  },
+                ),
+              ),
             ),
-          ],
-        ),
+            Container(
+              child: Text('i am an modal'),
+            ),
+
+
+            /*
+             * @author Yinghan Wang
+             * @date
+             * @
+             */
+            RaisedButton(
+              child: Text('Scan'),
+              onPressed: _onPressScan,
+            ),
+
+            /*
+             * @author Yinghan Wang
+             * @date
+             * @
+             */
+            RaisedButton(
+              child: Text('go to second page'),
+              onPressed: () => onPressGoToSecondPage(context),
+            ),
+
+            /*
+             * @author Yinghan Wang
+             * @date
+             * @
+             */
+            RaisedButton(
+              child: Text('Form Page'),
+              onPressed: () => onPressGoToThirdPage(context),
+            ),
+
+            /*
+             * @author Yinghan Wang
+             * @date
+             * @
+             */
+            RaisedButton(
+              child: Text('sort'),
+              onPressed: _onPressSort,
+            ),
+
+            /*
+             * @author Yinghan Wang
+             * @date
+             * @
+             */
+            RaisedButton(
+              child: Text('show modal'),
+              onPressed: onPressShowModal,
+            ),
+          ], 
+        ), 
       ),
     );
   }

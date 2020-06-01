@@ -29,14 +29,14 @@ class SecondPage extends StatelessWidget {
 
     return Scaffold (
       appBar: AppBar(
-        title: Text('Confirmation page'),
+        title: Text('Second page'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              'Confirmation Page',
+              'Second Page',
               style: TextStyle(fontSize: 50),
             ),
           ],

@@ -4,7 +4,7 @@
  * @
  */
 import 'package:division/division.dart';
-import 'package:basamin/styles/global/global.dart';
+import 'package:basamin/styles/global/global.style.dart';
 
 class IdentityStyle {
   // listItem is equivlent to .list-item class in csss
