@@ -3,6 +3,7 @@
  * @date
  * @
  */
+import 'package:basamin/components/bm_button.dart';
 import 'package:basamin/services/product_list_service.dart';
 import 'package:basamin/styles/global/global.style.dart';
 import 'package:flutter/material.dart';
@@ -138,17 +139,9 @@ class FirstPageState extends State<FirstPage>{
              * @date
              * @
              */
-            ButtonTheme(
-              minWidth: 200,
-              height: 50,
-              child: RaisedButton(
-                color: GlobalStyle.primaryColor,
-                child: Text(
-                  'Scan',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: _onPressScan,
-              ),              
+            BmButton(
+              text: 'Scan',
+              onPressed: _onPressScan,
             ),
 
             /*
@@ -156,8 +149,8 @@ class FirstPageState extends State<FirstPage>{
              * @date
              * @
              */
-            RaisedButton(
-              child: Text('go to second page'),
+            BmButton(
+              text: 'Login',
               onPressed: () => onPressGoToSecondPage(context),
             ),
 
@@ -166,8 +159,8 @@ class FirstPageState extends State<FirstPage>{
              * @date
              * @
              */
-            RaisedButton(
-              child: Text('Form Page'),
+            BmButton(
+              text: 'Register',
               onPressed: () => onPressGoToThirdPage(context),
             ),
 
@@ -176,19 +169,9 @@ class FirstPageState extends State<FirstPage>{
              * @date
              * @
              */
-            RaisedButton(
-              child: Text('sort'),
+            BmButton(
+              text: 'Sort',
               onPressed: _onPressSort,
-            ),
-
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            RaisedButton(
-              child: Text('show modal'),
-              onPressed: onPressShowModal,
             ),
           ], 
         ), 
