@@ -4,6 +4,7 @@
  * @
  */
 import 'package:basamin/services/product_list_service.dart';
+import 'package:basamin/styles/global/global.style.dart';
 import 'package:flutter/material.dart';
 import 'package:basamin/components/identity.dart';
 import 'package:get_it/get_it.dart';
@@ -84,18 +85,31 @@ class FirstPageState extends State<FirstPage>{
   // VIEW
   @override
   Widget build(BuildContext context) {
-
+    
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('CREATE ACCOUNT'),
-        ),
+        // appBar: AppBar(
+        //   title: Text('Create Account'),
+        //   backgroundColor: GlobalStyle.white
+        // ),
 
 
         body: Column(
           children: <Widget>[
-            Container(
-              child: Text('Experiment page', style: TextStyle( fontSize: 40 ),),
+            Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Container(
+                margin: EdgeInsets.only(top: GlobalStyle.appBarHeight),
+                alignment: Alignment(-1.0, -1.0),
+                child: Text(
+                  'Create Account', 
+                  textAlign: TextAlign.start,
+                  style: TextStyle( 
+                    fontSize: 20, 
+                    fontWeight: FontWeight.bold, 
+                  ),
+                ),
+              ),
             ),
 
             Container(
@@ -124,9 +138,17 @@ class FirstPageState extends State<FirstPage>{
              * @date
              * @
              */
-            RaisedButton(
-              child: Text('Scan'),
-              onPressed: _onPressScan,
+            ButtonTheme(
+              minWidth: 200,
+              height: 50,
+              child: RaisedButton(
+                color: GlobalStyle.primaryColor,
+                child: Text(
+                  'Scan',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: _onPressScan,
+              ),              
             ),
 
             /*

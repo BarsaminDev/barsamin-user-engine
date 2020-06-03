@@ -15,6 +15,7 @@ class IntroPageStyle {
    * @
    */
   static final logoCtnrStyle = ParentStyle()
+    ..background.color(GlobalStyle.primaryColor)
     ..margin(top: 200);
 
   /*
@@ -25,22 +26,11 @@ class IntroPageStyle {
   static final logoStyle = ParentStyle()
     ..height(100)
     ..width(100)
-    ..padding(horizontal: 20.0, vertical: 10)
     ..alignment.center()
-    ..background.color(GlobalStyle.primaryColor)
-    ..borderRadius(all: 24)
-    ..margin(bottom: 30)
+    ..background.color(GlobalStyle.white)
+    ..borderRadius(all: 10)
+    ..rotate(0.02)
     ..elevation(15, color: GlobalStyle.primaryColor);
-
-  /*
-   * @author Yinghan Wang
-   * @date
-   * @
-   */
-  static final welcomeMessageStyle = TxtStyle()
-    ..fontWeight(FontWeight.w700)
-    ..letterSpacing(5)
-    ..fontSize(17);
 
   /*
    * @author Yinghan Wang
@@ -50,8 +40,8 @@ class IntroPageStyle {
   static TextStyle logoTextStyle (BuildContext context) {
     return GoogleFonts.lexendTera(
       textStyle: Theme.of(context).textTheme.headline4,
-      fontSize: 20,
-      color: Colors.black,
+      fontSize: 60,
+      color: GlobalStyle.primaryColor,
       letterSpacing: 2,
       fontWeight: FontWeight.w900,
     );
