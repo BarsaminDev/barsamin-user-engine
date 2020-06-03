@@ -29,7 +29,7 @@ class SecondPage extends StatelessWidget {
 
     return Scaffold (
       appBar: AppBar(
-        title: Text('Second page'),
+        title: Text('PERSONAL DETAILS'),
       ),
       body: Center(
         child: Column(

@@ -88,7 +88,7 @@ class FirstPageState extends State<FirstPage>{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter POC'),
+          title: Text('CREATE ACCOUNT'),
         ),
 
 

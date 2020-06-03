@@ -7,7 +7,8 @@ class GlobalStyle{
    * @date
    * @
    */
-  static final primaryColor = '';
+  static final baseColor = Colors.indigo[900];
+  static final primaryColor = baseColor;
   static final red = Colors.red;
   static final green = '';
   static final black = '';

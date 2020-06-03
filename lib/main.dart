@@ -9,6 +9,7 @@ import 'package:get_it/get_it.dart';
 
 // INCLUDE SERVICES
 import 'package:basamin/services/product_list_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // import 'package:flutter/rendering.dart';
 
@@ -85,6 +86,9 @@ class MyApp extends StatelessWidget {
       title: 'Basarmin Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
