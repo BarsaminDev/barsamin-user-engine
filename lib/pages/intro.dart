@@ -6,11 +6,13 @@
 
 import 'dart:async';
 
+import 'package:basamin/components/bm_button.dart';
 import 'package:basamin/styles/global/global.style.dart';
 import 'package:division/division.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:basamin/styles/pages/intro-page.style.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class Intro extends StatelessWidget {
 
@@ -18,18 +20,22 @@ class Intro extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  
+
   /*
    * @author Yinghan Wang
    * @date
    * @do this before everything
    */
-  void beforeBuild(context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      return Navigator.of(context).pushNamed(
-        '/first', 
-        arguments: 'come from the intro page to the first page',
-      ); 
-    });
+  void beforeBuild(context) async{
+    await FlutterStatusbarcolor.setStatusBarColor(GlobalStyle.lightGrey);
+    await FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   return Navigator.of(context).pushNamed(
+    //     '/register', 
+    //     arguments: 'come from the intro page to the first page',
+    //   ); 
+    // });
 
   }
 
@@ -48,7 +54,7 @@ class Intro extends StatelessWidget {
             // width: MediaQuery.of(context).size.width * 1,
             // height: MediaQuery.of(context).size.height * 1,
             child: Container(
-              color: GlobalStyle.primaryColor,
+              color: GlobalStyle.white,
             ),
           ),
           Positioned(
@@ -77,50 +83,29 @@ class Intro extends StatelessWidget {
                 style: TxtStyle()
                   ..fontSize(15)
                   ..letterSpacing(3)
-                  ..textColor(GlobalStyle.white),
+                  ..textColor(GlobalStyle.black),
               )
             ),
           ),
+          Positioned(
+            bottom: 220,
+            left: MediaQuery.of(context).size.width * 0.5 - 150,
+            child: BmButton(text: 'Login', onPressed: () {
+              Navigator.of(context).pushNamed('/login');
+            },), 
+          ),
+          Positioned(
+            bottom: 150,
+            left: MediaQuery.of(context).size.width * 0.5 - 150,
+            child: BmButton(text: 'Register', onPressed: () {
+              Navigator.of(context).pushNamed('/register');
+            },), 
+          ),
+
+          
         ],
       )
     );
-    
-    // return Scaffold (
-    //   body: Parent(
-    //     style: IntroPageStyle.logoCtnrStyle,
-    //     // margin: const EdgeInsets.only(top: 300),
-    //     child: Column(
-    //       mainAxisSize: MainAxisSize.min,
-    //       children: <Widget>[
-    //         Parent(
-    //           child: Text(''),
-    //           style: IntroPageStyle.logoStyle,
-    //         ),
-    //         Text('BARSAMIN', style: IntroPageStyle.logoTextStyle(context),),
-    //         // Parent(
-    //         //   style: ParentStyle()
-    //         //     ..margin(top: 190),
-    //         //   child: Column(
-    //         //     children: [
-    //         //       Txt( 'WELCOME', style: IntroPageStyle.welcomeMessageStyle, ),
-    //         //       Parent(
-    //         //         style: ParentStyle()
-    //         //           ..margin(top: 10)
-    //         //           ..padding(right: 40, left: 40),
-    //         //         child: Text(
-    //         //           'For personal data protection, service cost effictiveness and pursuing trusted identity.',
-    //         //           textAlign: TextAlign.center,
-    //         //           style: TextStyle(color: Colors.grey,),
-    //         //         ),
-    //         //       ),
-                  
-    //         //     ]
-    //         //   ),
-    //         // ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 // pages
-import 'package:basamin/pages/first_page.dart';
+import 'package:basamin/pages/login_page.dart';
 import 'package:basamin/pages/second_page.dart';
 import 'package:basamin/pages/third_page.dart';
 import 'package:basamin/pages/intro.dart';
+import 'package:basamin/pages/register.dart';
 
 /*
  * @author Yinghan Wang
@@ -23,14 +24,22 @@ class RouteGenerator {
        */
       case '/':
         return MaterialPageRoute(builder: (_) => Intro());
+      
+      /*
+       * @author Yinghan Wang
+       * @date
+       * @
+       */
+      case '/register':
+        return MaterialPageRoute(builder: (_) => Register());
 
       /*
        * @author Yinghan Wang
        * @date
        * @
        */
-      case '/first':
-        return MaterialPageRoute(builder: (_) => FirstPage());
+      case '/login':
+        return MaterialPageRoute(builder: (_) => LoginPage());
 
       /*
        * @author Yinghan Wang

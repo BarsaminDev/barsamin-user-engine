@@ -7,21 +7,24 @@ class GlobalStyle{
    * @date
    * @
    */
-  static final baseColor = Colors.purple[900];
+  static final baseColor = Colors.indigo[900];
   static final primaryColor = baseColor;
   static final red = Colors.red;
   static final green = '';
-  static final black = '';
+  static final black = Colors.black;
   static final white = Colors.white;
+  static final orange = Colors.orange[700];
   static final grey = '';
   static final dartGrey = '';
+  static final lightGrey = Colors.grey[100];
+  static final pageSideGap = 50.0;
 
   /*
    * @author Yinghan Wang
    * @date
    * @
    */
-  static final double appBarHeight = 60;
+  static final double appBarHeight = 50;
 
   /*
    * @author Yinghan Wang

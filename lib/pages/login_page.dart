@@ -10,6 +10,7 @@ import 'package:basamin/styles/global/global.style.dart';
 import 'package:flutter/material.dart';
 import 'package:basamin/components/identity.dart';
 import 'package:get_it/get_it.dart';
+import 'package:basamin/components/bm_text_input.dart';
 
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
@@ -18,9 +19,9 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
  * @date
  * @state boilerplate
  */
-class FirstPage extends StatefulWidget{
+class LoginPage extends StatefulWidget{
   @override
-  createState() => FirstPageState();
+  createState() => LoginPageState();
 }
 
 /*
@@ -28,7 +29,7 @@ class FirstPage extends StatefulWidget{
  * @date
  * @controller
  */
-class FirstPageState extends State<FirstPage>{
+class LoginPageState extends State<LoginPage>{
 
   ProductListService pls;
   String scannedRes = '';
@@ -98,70 +99,37 @@ class FirstPageState extends State<FirstPage>{
         body: Column(
           children: <Widget>[
             
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Container(
-                margin: EdgeInsets.only(top: GlobalStyle.appBarHeight),
-                alignment: Alignment(-1.0, -1.0),
-                child: Header(text: 'Login'),
-              ),
+            Container(
+              child: Header(text: 'Login',),  
             ),
 
             Container(
-              child: Text('Scanned value: ${this.scannedRes}')
+              margin: EdgeInsets.only(top: 100),
+              child: Padding(
+                // top: 300,
+                
+                padding: EdgeInsets.all(GlobalStyle.pageSideGap),
+                child: Column(
+                  children: <Widget>[
+                    BmTextInput(labelText: 'User name',),
+                    BmTextInput(
+                      labelText: 'Password',
+                      obscureText: true,
+                      ),
+                  ]
+                ),
+              ),
+
             ),
-
-            // Expanded(
-            //   child: SizedBox(
-            //     child: ListView.builder(
-            //       itemCount: pls.data.length,
-            //       itemBuilder: (context, index) {
-            //         return ListTile(
-            //           title: Identity('${pls.data[index]['name']}'),
-            //         );
-            //       },
-            //     ),
-            //   ),
-            // ),
-
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            BmButton(
-              text: 'Scan',
-              onPressed: _onPressScan,
-            ),
-
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            BmButton(
-              text: 'Login',
-              onPressed: () => onPressGoToSecondPage(context),
-            ),
-
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            BmButton(
-              text: 'Register',
-              onPressed: () => onPressRegister(context),
-            ),
-
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            BmButton(
-              text: 'Sort',
-              onPressed: _onPressSort,
+            Container(
+              margin: EdgeInsets.only(top: 100),
+              width: MediaQuery.of(context).size.width,
+              child: Center(
+                child: BmButton(
+                  text: 'Login',
+                  onPressed: () => onPressRegister(context),
+                ),
+              ),              
             ),
           ], 
         ), 

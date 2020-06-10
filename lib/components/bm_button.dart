@@ -14,9 +14,9 @@ class BmButton extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return ButtonTheme(
-      minWidth: 200,
+      minWidth: 300,
       height: 50,
-      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(6)),
+      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25)),
       child: RaisedButton(
         color: GlobalStyle.primaryColor,
         child: Text(

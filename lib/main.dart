@@ -5,6 +5,8 @@
  */
 import 'package:basamin/route_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:get_it/get_it.dart';
 
 // INCLUDE SERVICES
@@ -73,14 +75,30 @@ void main() async {
   // form.validate();
 }
 
+
+
 /*
  * @author Yinghan Wang
  * @date
  * @
  */
 class MyApp extends StatelessWidget {
+
+
+
+  void init() async{
+    await FlutterStatusbarcolor.setStatusBarColor(Colors.grey[200], animate: true);
+    await FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+  }
+
+
   @override
   Widget build(BuildContext context) {
+    this.init();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Basarmin Demo',
