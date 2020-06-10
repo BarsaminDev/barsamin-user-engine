@@ -104,9 +104,7 @@ class MyApp extends StatelessWidget {
       title: 'Basarmin Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.latoTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        fontFamily: 'Montserrat',
       ),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,

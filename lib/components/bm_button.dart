@@ -1,30 +1,70 @@
 import 'package:basamin/styles/global/global.style.dart';
 import 'package:flutter/material.dart';
 
+class BmButton extends StatefulWidget{
 
-class BmButton extends StatelessWidget {
-  
-  final String text;
   final GestureTapCallback onPressed;
+  final String text;
+
+    BmButton({
+      @required this.onPressed,
+      @required this.text,
+    }) : super();
+
+  @override
+  createState() => BmButtonState(
+    onPressed: this.onPressed,
+    text: this.text,
+    show: false,
+  );
+}
+
+
+class BmButtonState extends State {
   
-  BmButton({
+  String text;
+  GestureTapCallback onPressed;
+  bool show = false;
+  
+  BmButtonState({
     @required this.onPressed,
     @required this.text,
+    this.show,
   }) : super();
 
+  void press() {
+    setState(() {
+      // this.show = !this.show;
+      // print('asdfasdfad');
+    });
+    this.onPressed();
+  }
+
   Widget build(BuildContext context) {
-    return ButtonTheme(
-      minWidth: 300,
-      height: 50,
-      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25)),
-      child: RaisedButton(
-        color: GlobalStyle.primaryColor,
-        child: Text(
-          this.text,
-          style: TextStyle(color: Colors.white, fontSize: 18),
+
+    return Container(
+      
+      child: ButtonTheme(
+        minWidth: 300,
+        height: 50,
+        shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25)),
+        child: Row(
+          children: <Widget>[
+            RaisedButton(
+              color: GlobalStyle.primaryColor,
+              child: Text(
+                this.text,
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              onPressed: this.press,
+            ),
+            if(this.show) new CircularProgressIndicator(
+                valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+              ),              
+            
+          ],
         ),
-        onPressed: this.onPressed,
-      ),              
-    );
+      ),
+    ); 
   }
 }

@@ -81,15 +81,14 @@ class Register extends StatelessWidget{
              * @date
              * @
              */
-            Container(
-              margin: EdgeInsets.only(top: 100),
-              width: MediaQuery.of(context).size.width,
-              child: Center(
-                child: BmButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                BmButton(
                   text: 'Create Account',
-                  onPressed: () => onPressRegister(context),
+                  onPressed: () => this.onPressRegister(context),
                 ),
-              ),              
+              ],       
             ),
           ], 
         ), 

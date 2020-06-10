@@ -8,11 +8,8 @@ import 'package:basamin/components/header.dart';
 import 'package:basamin/services/product_list_service.dart';
 import 'package:basamin/styles/global/global.style.dart';
 import 'package:flutter/material.dart';
-import 'package:basamin/components/identity.dart';
 import 'package:get_it/get_it.dart';
 import 'package:basamin/components/bm_text_input.dart';
-
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 /*
  * @author Yinghan Wang
@@ -47,32 +44,11 @@ class LoginPageState extends State<LoginPage>{
     super.dispose();
   }
 
-  Future _onPressScan() async{
-    var res = await FlutterBarcodeScanner.scanBarcode('#004297', 'Cancel', true, ScanMode.DEFAULT);
-    setState(() {
-      this.scannedRes = res;
-    });
-  }
+
   
-  // EVENTS
-  void _onPressSort() {   
-    pls.sort();
-    setState(() {});
-  }
 
-  void onPressGoToSecondPage(context) {
-    print('go to the second page');
-    Navigator.of(context).pushNamed(
-      '/second', 
-      arguments: 'come from the first page to the second page',
-    ); 
-  }
-
-  void onPressRegister(context) {    
-    Navigator.of(context).pushNamed(
-      '/register', 
-      arguments: 'come from the first page to the third page',
-    ); 
+  void onPressLogin() {    
+    print('login in progress');
   }
 
   void refresh() async{
@@ -90,12 +66,6 @@ class LoginPageState extends State<LoginPage>{
     
     return MaterialApp(
       home: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Create Account'),
-        //   backgroundColor: GlobalStyle.white
-        // ),
-
-
         body: Column(
           children: <Widget>[
             
@@ -119,17 +89,15 @@ class LoginPageState extends State<LoginPage>{
                   ]
                 ),
               ),
-
             ),
-            Container(
-              margin: EdgeInsets.only(top: 100),
-              width: MediaQuery.of(context).size.width,
-              child: Center(
-                child: BmButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                BmButton(
                   text: 'Login',
-                  onPressed: () => onPressRegister(context),
+                  onPressed: () => this.onPressLogin(),
                 ),
-              ),              
+              ],       
             ),
           ], 
         ), 
