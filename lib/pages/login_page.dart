@@ -60,101 +60,103 @@ class LoginPageState extends State<LoginPage>{
     
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            
-            Container(
-              child: Header(text: 'Login',),  
-            ),
+        body: Container(
+          color: GlobalStyle.white,
+          child: Column(
+            children: <Widget>[
+              
+              Container(
+                child: Header(text: 'Login',),  
+              ),
 
-            Padding(
-              padding: EdgeInsets.all(50),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 100),
-                    child: Padding(
-                      // top: 300,
-                      
-                      padding: EdgeInsets.all(0),
-                      child: Column(
-                        children: <Widget>[
-                          BmTextInput(labelText: 'User name',),
-                          BmTextInput(
-                            labelText: 'Password',
-                            obscureText: true,
-                          ),
+              Padding(
+                padding: EdgeInsets.only(left: 50, right: 50),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: Padding(
+                        // top: 300,
+                        
+                        padding: EdgeInsets.all(0),
+                        child: Column(
+                          children: <Widget>[
+                            BmTextInput(labelText: 'User name',),
+                            BmTextInput(
+                              labelText: 'Password',
+                              obscureText: true,
+                            ),
 
 
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(
-                                height: 24.0,
-                                width: 24.0,
-                                child: Checkbox(
-                                  value: rememberme,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                        rememberme = value;
-                                    });
-                                  },
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 24.0,
+                                  width: 24.0,
+                                  child: Checkbox(
+                                    value: rememberme,
+                                    onChanged: (bool value) {
+                                      setState(() {
+                                          rememberme = value;
+                                      });
+                                    },
+                                  ),
+                                  
                                 ),
-                                
+                                FlatButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      rememberme = !rememberme;
+                                    });
+                                  }, 
+                                  child: Txt('Remember me'),
+                                ),
+                              ],
+                            ),
+                          ]
+                        ),
+                      ),
+                    ),
+
+                    // SizedBox.expand(
+                    //   child: RaisedButton(child: Text('data'), onPressed: null,),
+                    // ),
+                    Container(
+                      margin: EdgeInsets.only(top: 50),
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(
+                            width: double.infinity,
+                            child: BmButton(
+                                text: 'Login',
+                                onPressed: () => this.onPressLogin(),
                               ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
                               FlatButton(
                                 onPressed: () {
-                                  setState(() {
-                                    rememberme = !rememberme;
-                                  });
-                                }, 
-                                child: Txt('Remember me'),
+                                  Navigator.of(context).pushNamed('/forgot-password');
+                                },
+                                // onPressed: () => this.onPressForgot(), 
+                                child: Text('Forgot password'),
                               ),
                             ],
                           ),
-                        ]
+                        ],       
                       ),
-                    ),
-                  ),
 
-                  // SizedBox.expand(
-                  //   child: RaisedButton(child: Text('data'), onPressed: null,),
-                  // ),
-                  Container(
-                    margin: EdgeInsets.only(top: 150),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        SizedBox(
-                          width: double.infinity,
-                          child: BmButton(
-                              text: 'Login',
-                              onPressed: () => this.onPressLogin(),
-                            ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/forgot-password');
-                              },
-                              // onPressed: () => this.onPressForgot(), 
-                              child: Text('Forgot password'),
-                            ),
-                          ],
-                        ),
-                      ],       
                     ),
-
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
 
-            
-          ], 
+              
+            ], 
+          ), 
         ), 
       ),
     );

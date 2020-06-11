@@ -13,19 +13,21 @@ class Header extends StatelessWidget {
     return Row(
       children: <Widget>[
         Container(
+          margin:EdgeInsets.only(top: GlobalStyle.appBarHeight),
           width: MediaQuery.of(context).size.width * 1,
-          height: 40,
+          height: 60,
           decoration: BoxDecoration(
-            // color: Colors.red,
+            color: GlobalStyle.white,
           ),
-          margin: EdgeInsets.only(top: GlobalStyle.appBarHeight),
+          // margin: EdgeInsets.only(top: GlobalStyle.appBarHeight),
           child: Text(
             this.text, 
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: GlobalStyle.fontChoice,
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
+              fontSize: 23,
+              color: Colors.black,
+              fontWeight: FontWeight.w900,
             ),
           ),
         )

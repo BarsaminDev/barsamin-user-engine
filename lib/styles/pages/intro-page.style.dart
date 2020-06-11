@@ -15,7 +15,7 @@ class IntroPageStyle {
    * @
    */
   static final logoCtnrStyle = ParentStyle()
-    ..background.color(GlobalStyle.primaryColor)
+    ..background.color(GlobalStyle.white)
     ..margin(top: 200);
 
   /*
@@ -30,7 +30,7 @@ class IntroPageStyle {
     ..background.color(GlobalStyle.primaryColor)
     ..borderRadius(all: 10)
     ..rotate(0.02)
-    ..elevation(15, color: GlobalStyle.white);
+    ..elevation(15, color: GlobalStyle.black);
 
   /*
    * @author Yinghan Wang
@@ -41,7 +41,7 @@ class IntroPageStyle {
     return GoogleFonts.lexendTera(
       textStyle: Theme.of(context).textTheme.headline4,
       fontSize: 60,
-      color: GlobalStyle.orange,
+      color: GlobalStyle.white,
       letterSpacing: 2,
       fontWeight: FontWeight.w900,
     );

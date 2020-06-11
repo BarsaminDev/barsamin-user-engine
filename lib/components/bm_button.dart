@@ -48,17 +48,17 @@ class BmButtonState extends State {
         height: 50,
         shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25)),
         child: RaisedButton(
-          color: GlobalStyle.primaryColor,
-          child: Text(
-            this.text,
-            style: TextStyle(
-              color: Colors.white, 
-              fontSize: 18,
-              fontFamily: GlobalStyle.fontChoice,
+              color: GlobalStyle.primaryColor,
+              child: Text(
+                this.text,
+                style: TextStyle(
+                  color: Colors.white, 
+                  fontSize: 18,
+                  fontFamily: GlobalStyle.fontChoice,
+                ),
+              ),
+              onPressed: this.press,
             ),
-          ),
-          onPressed: this.press,
-        ),
       ),
     ); 
   }

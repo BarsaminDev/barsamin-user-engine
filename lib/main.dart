@@ -84,7 +84,8 @@ void main() async {
  */
 class MyApp extends StatelessWidget {
   void init() async{
-    await FlutterStatusbarcolor.setStatusBarColor(Colors.grey[200], animate: true);
+    print('main bar');
+    await FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: false);
     await FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
   }
 

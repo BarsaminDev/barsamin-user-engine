@@ -52,52 +52,56 @@ class Register extends StatelessWidget{
         // ),
 
 
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            SizedBox(
-              width: double.infinity,
-              child: Header(text: 'Create Account',),  
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 90),
-              child: Icon(
-                Icons.account_circle,
-                color: Colors.grey[300],
-                size: 120.0,
+        body: Container(
+          color: GlobalStyle.white,
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              SizedBox(
+                width: double.infinity,
+                child: Header(text: 'Create Account',),  
               ),
-            ),
+              // Container(
+              //   margin: EdgeInsets.only(top: 90),
+              //   child: Icon(
+              //     Icons.account_circle,
+              //     color: Colors.grey[300],
+              //     size: 120.0,
+              //   ),
+              // ),
 
-            Container(
-              margin: EdgeInsets.only(top: 0),
-              child: Padding(
-                padding: EdgeInsets.only(left: GlobalStyle.pageSideGap, right: GlobalStyle.pageSideGap),
-                child: Column(
-                  children: <Widget>[
-                    BmTextInput(labelText: 'Name',),
-                    BmTextInput(labelText: 'Email',),
-                    BmTextInput(labelText: 'Phone',),
-                  ]
+              Container(
+                margin: EdgeInsets.only(top: 0),
+                child: Padding(
+                  padding: EdgeInsets.only(left: GlobalStyle.pageSideGap, right: GlobalStyle.pageSideGap),
+                  child: Column(
+                    children: <Widget>[
+                      BmTextInput(labelText: 'Name',),
+                      BmTextInput(labelText: 'Email',),
+                      BmTextInput(labelText: 'Phone',),
+                    ]
+                  ),
                 ),
               ),
-            ),
 
-            /*
-             * @author Yinghan Wang
-             * @date
-             * @
-             */
-            Padding(
-              padding: EdgeInsets.all(GlobalStyle.pageSideGap),
-              child: SizedBox(
-              width: double.infinity,
-              child: BmButton(
-                text: 'Create Account',
-                onPressed: () => this.onPressRegister(context),
+              /*
+              * @author Yinghan Wang
+              * @date
+              * @
+              */
+              Padding(
+                padding: EdgeInsets.all(GlobalStyle.pageSideGap),
+                child: SizedBox(
+                width: double.infinity,
+                child: BmButton(
+                  text: 'Create Account',
+                  onPressed: () => this.onPressRegister(context),
+                ),
               ),
-            ),
-            ),
-          ],
+              ),
+            ],
+          ),
+
         ),
       ),
     );
