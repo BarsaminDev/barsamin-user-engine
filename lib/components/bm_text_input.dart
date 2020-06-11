@@ -15,18 +15,25 @@ class BmTextInput extends StatelessWidget {
   }) : super();
 
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: this.obscureText,
-      decoration: InputDecoration(
-        border: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: GlobalStyle.lightGrey,
+    return Container(
+      margin: EdgeInsets.only(top: 20),
+      child: TextField(
+        obscureText: this.obscureText,
+        decoration: InputDecoration(
+          border: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: GlobalStyle.lightGrey,
+            ),
+          ),
+          hintText: this.hintText,
+          labelText: this.labelText,
+          // contentPadding: EdgeInsets.all(10),
+          labelStyle: new TextStyle(
+            color: const Color(0xFF424242),
+            fontFamily: GlobalStyle.fontChoice,
           ),
         ),
-        hintText: this.hintText,
-        labelText: this.labelText,
-        labelStyle: new TextStyle(color: const Color(0xFF424242)),
       ),
-    );
+    ); 
   }
 }

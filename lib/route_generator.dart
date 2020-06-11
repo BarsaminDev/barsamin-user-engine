@@ -1,3 +1,4 @@
+import 'package:basamin/pages/forgot_passwork.dart';
 import 'package:flutter/material.dart';
 
 // pages
@@ -32,6 +33,14 @@ class RouteGenerator {
        */
       case '/register':
         return MaterialPageRoute(builder: (_) => Register());
+
+      /*
+       * @author Yinghan Wang
+       * @date
+       * @
+       */
+      case '/forgot-password':
+        return MaterialPageRoute(builder: (_) => ForgotPassword());
 
       /*
        * @author Yinghan Wang

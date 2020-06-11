@@ -10,14 +10,16 @@ class GlobalStyle{
   static final baseColor = Colors.indigo[900];
   static final primaryColor = baseColor;
   static final red = Colors.red;
-  static final green = '';
+  static final green = Colors.green;
   static final black = Colors.black;
   static final white = Colors.white;
   static final orange = Colors.orange[700];
-  static final grey = '';
-  static final dartGrey = '';
+  static final grey = Colors.grey;
+  static final dartGrey = Colors.grey[700];
   static final lightGrey = Colors.grey[100];
   static final pageSideGap = 50.0;
+
+  static final fontChoice = 'Montserrat';
 
   /*
    * @author Yinghan Wang

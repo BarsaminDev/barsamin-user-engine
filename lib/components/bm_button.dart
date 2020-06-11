@@ -25,6 +25,7 @@ class BmButtonState extends State {
   String text;
   GestureTapCallback onPressed;
   bool show = false;
+  Icon icon;
   
   BmButtonState({
     @required this.onPressed,
@@ -43,26 +44,20 @@ class BmButtonState extends State {
   Widget build(BuildContext context) {
 
     return Container(
-      
       child: ButtonTheme(
-        minWidth: 300,
         height: 50,
         shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25)),
-        child: Row(
-          children: <Widget>[
-            RaisedButton(
-              color: GlobalStyle.primaryColor,
-              child: Text(
-                this.text,
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-              onPressed: this.press,
+        child: RaisedButton(
+          color: GlobalStyle.primaryColor,
+          child: Text(
+            this.text,
+            style: TextStyle(
+              color: Colors.white, 
+              fontSize: 18,
+              fontFamily: GlobalStyle.fontChoice,
             ),
-            if(this.show) new CircularProgressIndicator(
-                valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
-              ),              
-            
-          ],
+          ),
+          onPressed: this.press,
         ),
       ),
     ); 

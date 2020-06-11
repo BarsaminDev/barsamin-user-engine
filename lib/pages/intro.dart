@@ -48,61 +48,71 @@ class Intro extends StatelessWidget {
     this.beforeBuild(context);
 
     return Scaffold(
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Positioned.fill(
-            // width: MediaQuery.of(context).size.width * 1,
-            // height: MediaQuery.of(context).size.height * 1,
-            child: Container(
-              color: GlobalStyle.white,
-            ),
+          Container(
+            child: Text(''),
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.33,
-            left: MediaQuery.of(context).size.width * 0.5 - 50,
-            child: Parent(
-              style: IntroPageStyle.logoStyle,
-            ),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.342,
-            left: MediaQuery.of(context).size.width * 0.5 - 29,
-            child: Parent(
-              child: Text(
-                'b',
-                style: IntroPageStyle.logoTextStyle(context),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+                  Parent(
+                    style: IntroPageStyle.logoStyle,
+                  ),
+                ],
               ),
-            ),
+              Parent(
+                style: ParentStyle()
+                  ..margin(top: 20),
+                child: Txt(
+                  'BARSAMIN',
+                  style: TxtStyle()
+                    ..fontSize(15)
+                    ..letterSpacing(3)
+                    ..textColor(GlobalStyle.black),
+                )
+              ),
+            ],
           ),
-          Center(
-            child: Parent(
-              style: ParentStyle()
-                ..margin(top: 0),
-              child: Txt(
-                'BARSAMIN',
-                style: TxtStyle()
-                  ..fontSize(15)
-                  ..letterSpacing(3)
-                  ..textColor(GlobalStyle.black),
-              )
-            ),
-          ),
-          Positioned(
-            bottom: 220,
-            left: MediaQuery.of(context).size.width * 0.5 - 150,
-            child: BmButton(text: 'Login', onPressed: () {
-              Navigator.of(context).pushNamed('/login');
-            },), 
-          ),
-          Positioned(
-            bottom: 150,
-            left: MediaQuery.of(context).size.width * 0.5 - 150,
-            child: BmButton(text: 'Register', onPressed: () {
-              Navigator.of(context).pushNamed('/register');
-            },), 
+          
+          Padding(
+            padding: EdgeInsets.all(50),
+            // bottom: 30,
+            child: Column(
+              children: <Widget>[
+                
+                SizedBox(
+                  width: double.infinity,
+                  child: BmButton(text: 'Login', onPressed: () {
+                    Navigator.of(context).pushNamed('/login');
+                  },),
+                ),
+
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: BmButton(text: 'Register', onPressed: () {
+                      Navigator.of(context).pushNamed('/register');
+                    },), 
+                  ),
+                ),
+              ],
+            ), 
           ),
 
-          
+          Container(
+            
+            
+              child: Txt(
+                'Now led tedious shy lasting females off. Dashwood marianne in of entrance be on wondered possible building. Wondered sociable he carriage ',
+                style: TxtStyle()..textAlign.center()..padding(left: 30.0, right: 30),
+              ),
+            
+          ),
         ],
       )
     );
